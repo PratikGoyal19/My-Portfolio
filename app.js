@@ -1,7 +1,6 @@
-// Updated app.js file with mobile menu functionality
-
+// Updated app.js file with improved mobile menu functionality
 $(document).ready(function(){
-    // Existing code
+    // Sticky navbar on scroll
     $(window).scroll(function(){
         if(this.scrollY > 200){
             $('.navbar').addClass("sticky");
@@ -15,6 +14,7 @@ $(document).ready(function(){
         }
     });
     
+    // Typing animation
     var typed = new Typed(".typing-1", {
         strings: ["Developer", "Designer", "AI & ML Enthusiast", "Data Enthusiast"],
         typeSpeed: 80,
@@ -29,14 +29,10 @@ $(document).ready(function(){
         loop: true
     });
     
+    // Scroll up button functionality
     $('.scroll-up-btn').click(function(){
         $('html').animate({scrollTop: 0});
     });
-    
-    // Add mobile menu button if it doesn't exist in HTML
-    if ($('.menu-btn').length === 0) {
-        $('.navbar').append('<div class="menu-btn"><i class="fas fa-bars"></i></div>');
-    }
     
     // Mobile menu toggle functionality
     $('.menu-btn').click(function(){
@@ -48,5 +44,23 @@ $(document).ready(function(){
     $('.navbar .menu li a').click(function(){
         $('.navbar .menu').removeClass("active");
         $('.menu-btn i').removeClass("active");
+    });
+
+    // Fix project heights on mobile
+    function adjustProjectHeights() {
+        if(window.innerWidth <= 768) {
+            $('.projects .project-content .main').each(function() {
+                var projectHeight = $(this).find('.project').outerHeight();
+                $(this).css('min-height', (projectHeight + 100) + 'px');
+            });
+        } else {
+            $('.projects .project-content .main').css('min-height', '450px');
+        }
+    }
+    
+    // Run on page load and window resize
+    adjustProjectHeights();
+    $(window).resize(function() {
+        adjustProjectHeights();
     });
 });
