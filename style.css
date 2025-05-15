@@ -157,8 +157,12 @@ html{
     opacity: 0.4;
     overflow: hidden;
 }
+
+/* About Section */
 #about{
     background: #07080B;
+    padding: 60px 0;
+    position: relative;
 }
 #about .title::before{
     background: #FEC544;
@@ -173,8 +177,6 @@ html{
     transform: translateY(20px);
     opacity: 0.1;
     padding-top: 20px;
-    
-    
 }
 .about h5{
     font-weight: 700;
@@ -220,9 +222,12 @@ html{
     padding: 10px;
 }
 
+/* Projects Section */
 #projects{
     color: #A9ADB8;
     background: #FEC544;
+    padding: 60px 0;
+    position: relative;
 }
 .projects h5{
     font-weight: 700;
@@ -237,6 +242,13 @@ html{
     opacity: 0.1;
     padding-top: -20px;
 }
+.projects .project-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    transform: translateY(-60px);
+}
 .projects .project-content .main{
     width: calc(30% - 20px);
     min-height: 450px;
@@ -244,13 +256,16 @@ html{
     border-radius: 5px;
     position: relative;
     cursor: pointer;
+    margin-bottom: 40px;
 }
 .project{
     background: #07080B;
     padding: 30px;
     border-radius: 10px;
     position: absolute;
-    
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
     transform: scale(1.05);
     box-shadow: 0 0 20px -15px #07080B;
@@ -264,13 +279,15 @@ html{
     background: #07080B;
     border: 18px solid #FEC544;
     transition: transform 1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-logo i{
     color: #FEC544;
     width: 50px;
     margin-top: 20px;
-    
 }
 .project h4{
     height: 28px;
@@ -278,6 +295,10 @@ html{
     background: #07080B;
     margin: 60px auto;
     position: relative;
+}
+.project h4 a{
+    color: #FEC544;
+    text-decoration: none;
 }
 .project h4::after{
     content:'';
@@ -320,7 +341,6 @@ html{
     bottom: 0;
     left: 18%;
     z-index: -2;
-    
 }
 .main:hover .project{
     transform: translateY(-50px);
@@ -328,8 +348,12 @@ html{
 .main:hover .shadowone{
     transform: translateY(-25px);
 }
+
+/* Skills Section */
 #skills{
     background: #07080B;
+    padding: 60px 0;
+    position: relative;
 }    
 .skills h1{
     color: #6e6e70;
@@ -420,27 +444,28 @@ html{
     width: 65%;
 }
 .skills .skill-content .right .rc::before{
-    width: 40%;
+    width: 85%;
 }
 .skills .skill-content .right .sql::before{
-    width: 65%;
+    width: 90%;
 }
 .skills .skill-content .right .ml::before{
-    width: 40%;
+    width: 80%;
 }
+
+/* Contact Section */
 #contact{
     background: #FEC544;
+    padding: 60px 0;
+    position: relative;
 }
 .contact h5{
     font-weight: 700;
     color: #07080B;
     transform: translateY(-65px);
 }
-
-
 .contact h1{
-
-    color: #6e6e70;
+    color: #07080B;
     text-align: center;
     font-size: 80px;
     transform: translateY(20px);
@@ -556,6 +581,9 @@ html{
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .scroll-up-btn.show{
     opacity: 1;
@@ -568,17 +596,12 @@ html{
     display: block;
 }
 
-/* Add these styles to your existing style.css file */
-
 /* Menu button styling for mobile devices */
 .menu-btn {
     display: none;
     color: #fff;
     font-size: 23px;
     cursor: pointer;
-    position: absolute;
-    right: 30px;
-    top: 10px;
     z-index: 1000;
 }
 
@@ -593,6 +616,12 @@ html{
     .container {
         padding: 0 50px;
         max-width: 100%;
+    }
+    .navbar {
+        padding: 20px 50px;
+    }
+    .navbar.sticky {
+        padding: 10px 50px;
     }
     .about .about-content .column {
         width: 50%;
@@ -652,7 +681,7 @@ html{
     }
     .projects .project-content .main {
         width: calc(50% - 20px);
-        margin: 20px 10px;
+        margin: 20px 10px 60px;
     }
     
     .skills .skill-content {
@@ -687,6 +716,9 @@ html{
     }
     .menu-btn {
         display: block;
+        position: absolute;
+        right: 30px;
+        top: 15px;
     }
     .navbar .menu {
         position: fixed;
@@ -738,14 +770,22 @@ html{
     
     .projects .project-content .main {
         width: 100%;
-        margin: 40px 0;
+        margin: 60px 0;
+        min-height: 500px;
+    }
+    
+    .project {
+        height: auto;
     }
     
     .about .about-content,
-    .projects .project-content,
     .skills .skill-content,
     .contact .contact-content {
-        display: block;
+        transform: translateY(-30px);
+    }
+    
+    .projects .project-content {
+        transform: translateY(-30px);
     }
     
     .about .about-content .left img {
@@ -758,6 +798,7 @@ html{
     .skills h5,
     .contact h5 {
         font-size: 28px;
+        transform: translateY(-40px);
     }
 }
 
@@ -788,10 +829,15 @@ html{
     .skills h5,
     .contact h5 {
         font-size: 25px;
+        transform: translateY(-30px);
     }
     
     .about .about-content .right .text {
         font-size: 22px;
+    }
+    
+    .projects .project-content .main {
+        min-height: 550px;
     }
     
     .contact .contact-content .right .items .item {
@@ -803,7 +849,6 @@ html{
         margin-bottom: 10px;
     }
 }
-
 
 
 
