@@ -275,11 +275,11 @@ JavaScript, and I am passionate about building intelligent systems that solve re
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    
     <script src="app.js"></script>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyBWq-DRJMMQ7hHWDH6ee2U3E0uUcdFpdUYOHOp9hWZzb_f1jX2FxDXh1JbG8aHCIH3/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxxYnAZZ_a_EowPWo2U6F0-uX32eDxf5Tz_jHTbxW34Ytrs3aypdMn-z_OvgYq0xp0vbQ/exec'
         const form = document.forms['submit-to-google-sheet']
         const msg = document.getElementById("msg")
 
@@ -291,7 +291,7 @@ JavaScript, and I am passionate about building intelligent systems that solve re
                     setTimeout(function () {
                         msg.innerHTML = ""
                     }, 5000)
-                    form.reset
+                    form.reset();
                 })
                 .catch(error => console.error('Error!', error.message))
         })
